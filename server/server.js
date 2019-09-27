@@ -9,13 +9,18 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse applicaton / json
 app.use(bodyParser.json())
 
-app.get('/usuario', function (req, res){
+
+app.get('/', (req, res) => {
+	res.send('Hola desde Express')
+})
+
+app.get('/usuario', (req, res) => {
 
 	res.json('GET usuario')
 
 })
 
-app.post('/usuario', function (req, res){
+app.post('/usuario', (req, res) => {
 
 	let body = req.body
 
@@ -38,7 +43,7 @@ app.post('/usuario', function (req, res){
 
 })
 
-app.put('/usuario/:identificador', function (req, res){
+app.put('/usuario/:identificador', (req, res) => {
 
 	let id = req.params.identificador
 	res.json({
@@ -47,7 +52,7 @@ app.put('/usuario/:identificador', function (req, res){
 
 })
 
-app.delete('/usuario', function (req, res){
+app.delete('/usuario', (req, res) => {
 
 	res.json('DELETE usuario')
 
